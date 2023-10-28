@@ -1,18 +1,23 @@
 import React, { useEffect } from "react";
+import './Home.css';
 
 const Home = ({jokesData}) => {
-  useEffect(() => {
-    console.log(`jokesData is ${JSON.stringify(jokesData)}`);
+  useEffect(() => {  
   }, [jokesData])
   
-  // console.log(`Inside home jokes is ${jokes}`);
+
   return (
-    <div>
-      Welcome here
-      {jokesData && jokesData.length > 0 && 
-      <div>Hello, we got jokes now, here's one now {jokesData.length}  </div>
-      }  
-    </div>
+    jokesData && jokesData.length > 0 && jokesData.map((joke) => {
+      return (
+      <div 
+      key={joke.jokeId}>
+        Joke id:{joke.jokeId} 
+        title: {joke.title} 
+        content: <p className="joke-content">{joke.content} </p>
+      </div>)
+    })
+   
+   
   )
 }
 

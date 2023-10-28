@@ -4,6 +4,8 @@ import api from './api/axiosConfig';
 import { useState, useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
+import Layout from './components/Layout';
+
 
 function App() {
   const [jokes, setJokes] = useState();
@@ -25,8 +27,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* <Route path="/" element={<Layout/>}></Route> */}
-        <Route path="/" element={<Home jokesData={jokes} />}></Route>        
+        <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Home jokesData={jokes} />}></Route>        
+        </Route>
       </Routes>
     </div>
   );
