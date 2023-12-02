@@ -2,7 +2,7 @@
 import './App.css';
 import api from './api/axiosConfig';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import Layout from './components/Layout';
 
