@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import api from './api/axiosConfig';
+import {useState, useEffect} from 'react';
 import './App.css';
+import Layout from './components/Layout';
+import Home from './components/home/Home';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
+  const [jokes, setJokes] = useState();
+
+  const getJokes = async () => {
+    try {
+      const response = await api.get("/api/v1/jokes");
+      console.log(response.data);
+      setJokes(response.data);
+
+    } catch(err){
+      console.log(err);
+    }    
+  }
+
+  useEffect(() => {
+    getJokes();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+         <Route path="/" element={<Home jokes={jokes} />}> </Route>
+        </Route>
+      </Routes>
     </div>
   );
 }

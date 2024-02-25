@@ -1,0 +1,15 @@
+.joke-carousel-container{
+  width:100vw;
+  background-color: black;  
+}
+.joke-poster{
+  height:300px;
+}
+/* .joke-poster > img {
+  height: 63%;
+  width: 37%;
+} */
+.joke-card-container{
+  height:550px;
+  background-color: black;
+}
