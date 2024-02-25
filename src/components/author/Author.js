@@ -1,6 +1,6 @@
 import './Author.css';
 import React from 'react';
-import Carousel from 'react-material-ui-carousel';
+import Carousel from 'react-material-ui-carousel';//can replace this with React Table https://www.material-react-table.com/docs/examples/basic
 import {Paper} from '@mui/material';
 
 const Author = ({jokes}) => {
