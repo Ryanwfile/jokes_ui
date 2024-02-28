@@ -11,8 +11,7 @@ const Author = ({jokes}) => {
           { jokes.map((joke) => {            
               return(
                 <Paper key={joke.jokeId}>
-                  <div className='joke-card-container'>
-                    <div className='joke-card' style={{"--img": `url(${joke.backdrops[0]})`}}>
+                  <div className='joke-card-container'>                    
                       <div className='joke-detail'>
                         <div className='joke-poster'>                          
                           <img 
@@ -21,11 +20,12 @@ const Author = ({jokes}) => {
                           ></img>
                         </div>
                         <div className='joke-title'>
+                          <h3>Testing Here, this is only a test</h3>
                           <h4>{joke.title} by {joke.author}</h4>
-                          <p><b>{joke.content}</b></p>
+                          <h2>{joke.content}</h2>
                         </div>
-                      </div>
-                    </div>
+                      </div>                    
+                    
                   </div>
                 </Paper>
               )

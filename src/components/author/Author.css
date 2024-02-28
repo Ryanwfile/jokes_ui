@@ -1,6 +1,7 @@
 .joke-carousel-container{
   width:100vw;
-  background-color: black;  
+  height: 100%;
+  background-color: grey;  
 }
 .joke-poster{
   height:300px;
@@ -11,5 +12,14 @@
 } */
 .joke-card-container{
   height:550px;
-  background-color: #ffc0cc
+  /* background-color: #ffc0cc; */
+  color:black;
+}
+
+.joke-detail{
+  position: absolute;
+  top:200px;
+  display:flex;
+  justify-content: space-around;
+  width:100%;
 }
