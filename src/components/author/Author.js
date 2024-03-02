@@ -5,23 +5,29 @@ import {Paper} from '@mui/material';
 
 const Author = ({jokes}) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
-  const [showAnswer, setShowAnswer] = useState(false);
-  // const [key, setkey] = useState();
+  const [showAnswer, setShowAnswer] = useState(false);  
+  //maybe each joke should have a pause so that one pause doesn't ruin them all
   const keyDown = (event) => {
       event.preventDefault();
       setShowAnswer(event.keyCode === 32);
-  }
+  };
+
   useEffect(() => {
     setInterval(() => {
       setIsDisplayed(true);
-    }, 10000);
+    }, 15000);
   }, []);
+
+ function handleShowAnswer(){ 
+  console.log('stuff handled');
+ }
   
   if(jokes && jokes.length > 0){
     return (
       <div tabIndex="0" className='joke-carousel-container' onKeyDown={keyDown}>
         <Carousel>
-          { jokes.map((joke) => {         
+          { jokes.map((joke) => { 
+            joke.showAnswer = showAnswer;     
             const question = joke.content.substring(10, joke.content.indexOf("?") + 1);
             const answer = joke.content.substring(joke.content.indexOf("Answer:") + 7);         
               return(
@@ -35,9 +41,11 @@ const Author = ({jokes}) => {
                           ></img>
                         </div>
                         <div className='joke-title'>
-                          <h3>Testing Here, this is only a test</h3>
+                          <h3>Press Space Bar to show answer before timer (You may have to click near this text first)</h3>
                           <h4>{joke.title} by {joke.author}</h4>
-                          {joke.isRhetorical ? <h2>{joke.content}</h2> : <h2>{ question } : {(isDisplayed || showAnswer ) ? answer : "Nothing to Display"}  </h2> }
+                          {joke.isRhetorical ? 
+                          <h2>{joke.content}</h2> : 
+                          <h2 onClick={handleShowAnswer}> { question } : {(isDisplayed || showAnswer ) ? answer : "Nothing to Display"}  </h2> }
                           {/* <h2>{joke.content}</h2> */}
                         </div>
                       </div>                    
