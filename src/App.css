@@ -9,12 +9,9 @@ body{
   margin:0;  
 }
 .App{
-  display: flex;
-  /* flex-direction: row; */
-  min-height: 100vh;
+  /* height:1150px; */
   background-color: pink;
-  color:white;
-  margin-top:10px;
+ 
 }
 /* .App {
   text-align: center;

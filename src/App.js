@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import api from './api/axiosConfig';
+import api from './api/axiosConfig.js';
 import {useState, useEffect} from 'react';
 import './App.css';
 import Layout from './components/Layout';

@@ -1,10 +1,11 @@
 .joke-carousel-container{
-  width:100vw;
-  height: 100%;
-  background-color: grey;  
+  /* width:100vw;
+  height: 100%; */
+  
+  /* background-color: grey;   */
 }
 .joke-poster{
-  height:300px;
+  /* height:300px; */
 }
 /* .joke-poster > img {
   height: 63%;
