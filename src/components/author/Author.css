@@ -1,16 +1,3 @@
-.joke-carousel-container{
-  /* width:100vw;
-  height: 100%; */
-  
-  /* background-color: grey;   */
-}
-.joke-poster{
-  /* height:300px; */
-}
-/* .joke-poster > img {
-  height: 63%;
-  width: 37%;
-} */
 .joke-card-container{
   height:550px;
   /* background-color: #ffc0cc; */

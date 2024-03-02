@@ -1,14 +1,29 @@
 import './Author.css';
-import React from 'react';
+import {useState, useEffect, React } from 'react';
 import Carousel from 'react-material-ui-carousel';//can replace this with React Table https://www.material-react-table.com/docs/examples/basic
 import {Paper} from '@mui/material';
 
 const Author = ({jokes}) => {
+  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
+  // const [key, setkey] = useState();
+  const keyDown = (event) => {
+      event.preventDefault();
+      setShowAnswer(event.keyCode === 32);
+  }
+  useEffect(() => {
+    setInterval(() => {
+      setIsDisplayed(true);
+    }, 10000);
+  }, []);
+  
   if(jokes && jokes.length > 0){
     return (
-      <div className='joke-carousel-container'>
+      <div tabIndex="0" className='joke-carousel-container' onKeyDown={keyDown}>
         <Carousel>
-          { jokes.map((joke) => {            
+          { jokes.map((joke) => {         
+            const question = joke.content.substring(10, joke.content.indexOf("?") + 1);
+            const answer = joke.content.substring(joke.content.indexOf("Answer:") + 7);         
               return(
                 <Paper key={joke.jokeId}>
                   <div className='joke-card-container'>                    
@@ -22,7 +37,8 @@ const Author = ({jokes}) => {
                         <div className='joke-title'>
                           <h3>Testing Here, this is only a test</h3>
                           <h4>{joke.title} by {joke.author}</h4>
-                          <h2>{joke.content}</h2>
+                          {joke.isRhetorical ? <h2>{joke.content}</h2> : <h2>{ question } : {(isDisplayed || showAnswer ) ? answer : "Nothing to Display"}  </h2> }
+                          {/* <h2>{joke.content}</h2> */}
                         </div>
                       </div>                    
                     

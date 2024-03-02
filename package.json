@@ -27,7 +27,9 @@
     "type":"module",
     "jest": {
     "transformIgnorePatterns": ["node_modules\/(?!axios)"]
-  }
+  },
+  "devDependencies": "@babel/plugin-proposal-private-property-in-object"
+  
   },
   "scripts": {
     "start": "react-scripts start",
